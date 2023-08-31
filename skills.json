@@ -40,6 +40,7 @@
       "prerequisite": [
         {
           "level": 1,
+          "feature": "Fragile Friendship",
           "other": "Bond Strength of 4"
         }
       ],
