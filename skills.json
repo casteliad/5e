@@ -1,34 +1,91 @@
 {
-  "_meta": {
-    "sources": [
-      {
-        "json": "New",
-        "abbreviation": "New",
-        "full": "New",
-        "authors": [
-          "D"
-        ],
-        "version": "1.1.4"
-      }
-    ]
-  },
-  "optionalfeature": [
-    {
-      "name": "Proficiency",
-      "source": "New",
-      "entries": ["{@i 5th-level Secret Antagonist trait}",
-        "As a bonus action, you harry the body or mind of a creature within 30 feet of you, making them susceptible to forceful influence. Until the end of your next turn, Charisma ({@skill Intimidation}) checks made against the cursed creature have advantage.",
-        {
-          "type": "entries",
-          "name": "Amplify",
-          "entries": [
-            "The next Wisdom saving throw the cursed creature makes before this curse ends has disadvantage."
-          ]
-        }
-      ],
-      "featureType": [
-        "Skill"
-      ]
-    }
-  ]
+"_meta": {
+"sources": [
+{
+"json": "New",
+"abbreviation": "New",
+"full": "New",
+"authors": [
+"D"
+],
+"version": "0.9"
 }
+],
+"optionalFeatureTypes": {
+"CA": "Class Ability",
+"PT": "Path talent",
+"SA": "special ability",
+"JP": "Job perk",
+"UA": "unique ability"
+}
+},
+"optionalfeature": [
+{
+"name": "Fragile Friendship",
+"source": "SCoC",
+"page": 125,
+"prerequisite": [
+{
+"level": 1,
+"other": "Bond Strength of 1"
+}
+],
+"entries": [
+"With a Bond Strength of 1, your companion is estranged from you. They will only take actions to defend themselves in combat, and will not use their abilities when you command. During each long rest, there is a 5% chance your companion will leave your party. This chance increases every night by an additional 5%. Your companion loses this feature when your Bond Strength is 2 or higher."
+],
+"featureType": [
+"SA"
+]
+},
+{
+"name": "On the Lookout",
+"source": "SCoC",
+"page": 125,
+"prerequisite": [
+{
+"level": 1,
+"other": "Bond Strength of 4"
+}
+],
+"entries": [
+"With a Bond Strength of 4 or higher, your companion is comfortable sharing information about what it notices. While within 5 feet of your companion, you can replace your Wisdom modifier with theirs when making Perception checks."
+],
+"featureType": [
+"UA"
+]
+},
+{
+"name": "Sharing is Caring",
+"source": "SCoC",
+"page": 125,
+"prerequisite": [
+{
+"level": 1,
+"other": "Bond Strength of 6"
+}
+],
+"entries": [
+"With a Bond Strength of 6 or higher, your companion is comfortable sharing some food it finds with you. Every 1d6 days, your companion can find food and fresh water for themselves and one other creature, provided that the land offers berries, small game, water, and so forth."
+],
+"featureType": [
+"PT"
+]
+},
+{
+"name": "Interesting Alliance",
+"source": "SCoC",
+"page": 125,
+"prerequisite": [
+{
+"level": 1,
+"other": "Bond Strength of 8"
+}
+],
+"entries": [
+"With a Bond Strength of 8 or higher, your companion is willing to back you up in social situations. While within 10 feet of your companion, you gain a +1 bonus on Charisma (Persuasion) checks made against creatures with the same alignment as the companion."
+],
+  "featureType": [
+"JP"
+]
+},
+
