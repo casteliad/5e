@@ -1,47 +1,26 @@
 const skillTree = document.getElementById('skillTree');
 
-const skills = [
-  {
-    id: 1,
-    title: 'Skill 1',
-    description: 'Description of Skill 1',
-    unlocked: true,
-  },
-  {
-    id: 2,
-    title: 'Skill 2',
-    description: 'Description of Skill 2',
-    unlocked: false,
-  },
-  {
-    id: 3,
-    title: 'Skill 3',
-    description: 'Description of Skill 3',
-    unlocked: false,
-  },
-  {
-    id: 4,
-    title: 'Skill 4',
-    description: 'Description of Skill 4',
-    unlocked: false,
-  },
-];
+fetch('data.json')
+  .then(response => response.json())
+  .then(json => {
+    const optionalFeatures = json.optionalfeature;
 
-skills.forEach(skill => {
-  const skillNode = document.createElement('div');
-  skillNode.classList.add('skillNode');
-  if (!skill.unlocked) {
-    skillNode.classList.add('locked');
-  }
+    optionalFeatures.forEach(feature => {
+      const featureNode = document.createElement('div');
+      featureNode.classList.add('skillNode');
 
-  const title = document.createElement('h3');
-  title.textContent = skill.title;
+      const title = document.createElement('h3');
+      title.textContent = feature.name;
 
-  const description = document.createElement('p');
-  description.textContent = skill.description;
+      const description = document.createElement('p');
+      description.textContent = feature.entries[0];
 
-  skillNode.appendChild(title);
-  skillNode.appendChild(description);
+      featureNode.appendChild(title);
+      featureNode.appendChild(description);
 
-  skillTree.appendChild(skillNode);
-});
+      skillTree.appendChild(featureNode);
+    });
+  })
+  .catch(error => {
+    console.error('Error loading JSON:', error);
+  });
