@@ -1,14 +1,28 @@
-// Get all skill nodes
-const skillNodes = document.querySelectorAll('.skillNode');
+fetch('skills.json')
+  .then(response => response.json())
+  .then(data => {
+    const skillTree = document.getElementById('skillTree');
 
-// Add click event listener to each skill node
-skillNodes.forEach(node => {
-  node.addEventListener('click', () => {
-    // Check if the skill node is locked
-    if (node.classList.contains('locked')) {
-      alert('This skill is locked!');
-    } else {
-      alert('You unlocked this skill!');
-    }
+    data.skills.forEach(skill => {
+      const skillNode = document.createElement('div');
+      skillNode.classList.add('skillNode');
+      if (skill.unlocked) {
+        skillNode.classList.add('unlocked');
+      } else {
+        skillNode.classList.add('locked');
+      }
+
+      const title = document.createElement('h2');
+      title.textContent = skill.title;
+
+      const description = document.createElement('p');
+      description.textContent = skill.description;
+
+      skillNode.appendChild(title);
+      skillNode.appendChild(description);
+      skillTree.appendChild(skillNode);
+    });
+  })
+  .catch(error => {
+    console.error('Error:', error);
   });
-});
