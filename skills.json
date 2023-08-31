@@ -20,7 +20,7 @@
   "optionalfeature": [
     {
       "name": "Fragile Friendship",
-      "source": "SCoC",
+      "source": "D",
       "page": 125,
       "prerequisite": [
         {
@@ -35,7 +35,7 @@
     },
     {
       "name": "On the Lookout",
-      "source": "SCoC",
+      "source": "D",
       "page": 125,
       "prerequisite": [
         {
@@ -50,7 +50,7 @@
     },
     {
       "name": "Sharing is Caring",
-      "source": "SCoC",
+      "source": "D",
       "page": 125,
       "prerequisite": [
         {
@@ -65,7 +65,7 @@
     },
     {
       "name": "Interesting Alliance",
-      "source": "SCoC",
+      "source": "D",
       "page": 125,
       "prerequisite": [
         {
