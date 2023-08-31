@@ -1,148 +1,47 @@
-import React, { useState, useCallback } from 'react';
-import {
-  Skill,
-  SavedDataType,
-  ContextStorage,
-  NodeSelectEvent,
-} from '../models';
-import SkillTreeSegment from './SkillTreeSegment';
-import HSeparator from './ui/HSeparator';
-import VisibilityContainer from './VisibilityContainer';
-import CalculateNodeCount from './CalculateNodeCount';
-import { SkillTreeProvider } from '../context/SkillContext';
-import styled from 'styled-components';
-import SkillTreeHeader from './SkillTreeHeader';
-import AddToFilterIndex from './filter/AddToFilterIndex';
-import FilterListener from './filter/FilterListener';
-import useMobile from '../hooks/useMobile';
+const skillTree = document.getElementById('skillTree');
 
-export interface Props {
-  treeId: string;
-  data: Skill[];
-  title: React.ReactNode | string;
-  description?: string;
-  collapsible?: boolean;
-  closedByDefault?: boolean;
-  savedData?: SavedDataType;
-  disabled?: boolean;
-  handleSave?: (
-    storage: ContextStorage,
-    treeId: string,
-    skills: SavedDataType
-  ) => void;
-  handleNodeSelect?: (e: NodeSelectEvent) => void;
-}
+const skills = [
+  {
+    id: 1,
+    title: 'Skill 1',
+    description: 'Description of Skill 1',
+    unlocked: true,
+  },
+  {
+    id: 2,
+    title: 'Skill 2',
+    description: 'Description of Skill 2',
+    unlocked: false,
+  },
+  {
+    id: 3,
+    title: 'Skill 3',
+    description: 'Description of Skill 3',
+    unlocked: false,
+  },
+  {
+    id: 4,
+    title: 'Skill 4',
+    description: 'Description of Skill 4',
+    unlocked: false,
+  },
+];
 
-interface CollapsibleContainerProps {
-  isCollapsible: boolean;
-}
-
-function SkillTree({
-  data,
-  title,
-  description,
-  closedByDefault,
-  treeId,
-  savedData,
-  handleSave,
-  handleNodeSelect,
-  collapsible = false,
-  disabled = false,
-}: Props) {
-  const isMobile = useMobile();
-  const initialVisibility = closedByDefault || disabled ? false : true;
-  const [isVisible, setVisibility] = useState(initialVisibility);
-
-  const memoizedToggleVisibility = useCallback(
-    function toggleVisibility() {
-      if (disabled) {
-        return setVisibility(false);
-      }
-
-      if (!collapsible) {
-        return setVisibility(true);
-      }
-
-      return setVisibility(!isVisible);
-    },
-    [isVisible, disabled, collapsible]
-  );
-
-  return (
-    <React.Fragment>
-      <AddToFilterIndex treeId={treeId} skills={data} />
-      <FilterListener
-        disabled={disabled}
-        isVisible={isVisible}
-        setVisibility={setVisibility}
-        treeId={treeId}
-      />
-      <SkillTreeProvider
-        treeId={treeId}
-        savedData={savedData}
-        handleSave={handleSave}
-        sendNodeSelectDataToClient={handleNodeSelect}
-      >
-        <CalculateNodeCount data={data} />
-        <SkillTreeContainer>
-          <SkillTreeHeader
-            isVisible={isVisible}
-            disabled={disabled}
-            handleClick={memoizedToggleVisibility}
-            collapsible={collapsible}
-            id={treeId}
-            description={description}
-            title={title}
-          />
-          <VisibilityContainer isVisible={isVisible}>
-            <StyledSkillTree isCollapsible={collapsible}>
-              {data.map((skill, i) => {
-                const displaySeparator = data.length - 1 !== i && isMobile;
-
-                return (
-                  <React.Fragment key={skill.id}>
-                    <SkillTreeSegment
-                      shouldBeUnlocked
-                      skill={skill}
-                      hasParent={false}
-                      parentPosition={0}
-                      parentHasMultipleChildren={false}
-                    />
-                    <HSeparator display={displaySeparator} />
-                  </React.Fragment>
-                );
-              })}
-            </StyledSkillTree>
-          </VisibilityContainer>
-        </SkillTreeContainer>
-      </SkillTreeProvider>
-    </React.Fragment>
-  );
-}
-
-export default SkillTree;
-
-const SkillTreeContainer = styled.div`
-  background-color: ${({ theme }) => theme.backgroundColor};
-  margin: 0 8px 48px;
-  min-width: 304px;
-
-  @media (min-width: 900px) {
-    margin: 0 8px 16px;
-    padding: 16px;
+skills.forEach(skill => {
+  const skillNode = document.createElement('div');
+  skillNode.classList.add('skillNode');
+  if (!skill.unlocked) {
+    skillNode.classList.add('locked');
   }
-`;
 
-const StyledSkillTree = styled.div<CollapsibleContainerProps>`
-  background: ${({ theme }) => theme.treeBackgroundColor};
-  border: ${({ theme }) => theme.border};
-  border-top: ${({ isCollapsible }) => (isCollapsible ? '0' : 'auto')};
-  border-radius: ${({ theme }) => theme.borderRadius};
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  const title = document.createElement('h3');
+  title.textContent = skill.title;
 
-  @media (min-width: 1200px) {
-    flex-direction: row;
-  }
-`;
+  const description = document.createElement('p');
+  description.textContent = skill.description;
+
+  skillNode.appendChild(title);
+  skillNode.appendChild(description);
+
+  skillTree.appendChild(skillNode);
+});
