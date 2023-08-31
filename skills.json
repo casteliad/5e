@@ -33,6 +33,50 @@
       ],
       "featureType": ["SA"]
     },
-    // ... (other optional features)
+    {
+      "name": "On the Lookout",
+      "source": "SCoC",
+      "page": 125,
+      "prerequisite": [
+        {
+          "level": 1,
+          "other": "Bond Strength of 4"
+        }
+      ],
+      "entries": [
+        "With a Bond Strength of 4 or higher, your companion is comfortable sharing information about what it notices. While within 5 feet of your companion, you can replace your Wisdom modifier with theirs when making Perception checks."
+      ],
+      "featureType": ["UA"]
+    },
+    {
+      "name": "Sharing is Caring",
+      "source": "SCoC",
+      "page": 125,
+      "prerequisite": [
+        {
+          "level": 1,
+          "other": "Bond Strength of 6"
+        }
+      ],
+      "entries": [
+        "With a Bond Strength of 6 or higher, your companion is comfortable sharing some food it finds with you. Every 1d6 days, your companion can find food and fresh water for themselves and one other creature, provided that the land offers berries, small game, water, and so forth."
+      ],
+      "featureType": ["PT"]
+    },
+    {
+      "name": "Interesting Alliance",
+      "source": "SCoC",
+      "page": 125,
+      "prerequisite": [
+        {
+          "level": 1,
+          "other": "Bond Strength of 8"
+        }
+      ],
+      "entries": [
+        "With a Bond Strength of 8 or higher, your companion is willing to back you up in social situations. While within 10 feet of your companion, you gain a +1 bonus on Charisma (Persuasion) checks made against creatures with the same alignment as the companion."
+      ],
+      "featureType": ["JP"]
+    }
   ]
 }
