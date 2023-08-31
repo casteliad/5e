@@ -8,6 +8,7 @@ fetch('data.json')
     optionalFeatures.forEach(feature => {
       const featureNode = document.createElement('div');
       featureNode.classList.add('skillNode');
+      featureNode.setAttribute('title', JSON.stringify(feature, null, 2));
 
       const title = document.createElement('h3');
       title.textContent = feature.name;
