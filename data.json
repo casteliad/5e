@@ -104,9 +104,11 @@
         }
       ],
       "entries": [
-        "With a Bond Strength of 8 or higher, your companion is willing to back you up in social situations. While within 10 feet of your companion, you gain a +1 bonus on Charisma (Persuasion) checks made against creatures with the same alignment as the companion."
-      ],
-      "entries": [
+	{	"type": "entries",
+		"name": "Amplify",
+		"entries": [	"The next Wisdom saving throw the cursed creature makes before this curse ends has disadvantage."	]
+	},
+
         "With a Bond Strength of 8 or higher, your companion is willing to back you up in social situations. While within 10 feet of your companion, you gain a +1 bonus on Charisma (Persuasion) checks made against creatures with the same alignment as the companion."
       ],
       "featureType": ["Job"]
