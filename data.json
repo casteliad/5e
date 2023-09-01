@@ -21,7 +21,7 @@
     {
       "name": "Fragile Friendship",
       "source": "D",
-      "page": ,
+      "page": 1,
       "prerequisite": [
         {
           "level": 1,
@@ -39,7 +39,7 @@
     {
       "name": "On the Lookout",
       "source": "D",
-      "page": 125,
+      "page": 1,
       "prerequisite": [
         {
           "level": 1,
@@ -57,7 +57,7 @@
     {
       "name": "Sharing is Caring",
       "source": "D",
-      "page": 125,
+      "page": 1,
       "prerequisite": [
         {
           "level": 1,
@@ -75,7 +75,7 @@
     {
       "name": "Interesting Alliance",
       "source": "D",
-      "page": 125,
+      "page": 1,
       "prerequisite": [
         {
           "level": 1,
