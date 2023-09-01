@@ -25,7 +25,10 @@
       "prerequisite": [
         {
           "level": 1,
-          "other": "Bond Strength of 1"
+          "otherSummary": {
+            "entry": "Pistoleer Form",
+            "entrySummary": "Pistoleer Form"
+          }
         }
       ],
       "entries": [
@@ -40,7 +43,6 @@
       "prerequisite": [
         {
           "level": 1,
-          "feature": "Fragile Friendship",
           "other": "Bond Strength of 4"
         }
       ],
