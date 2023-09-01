@@ -2,19 +2,19 @@
   "_meta": {
     "sources": [
       {
-        "json": "New",
-        "abbreviation": "New",
-        "full": "New",
-        "authors": ["D"],
-        "version": "0.9"
+	"json": "data",
+        "abbreviation": "new",
+        "full": "new",
+	"version": "0.2",
+	"authors": ["D"]
       }
     ],
     "optionalFeatureTypes": {
-      "Path": "-Path Talent",
-      "Class": "-Class Ability",
-      "Special": "-Special Ability",
-      "Unique": "-Unique Ability",
-      "Job": "-Job Perk"
+      "Path": " Path Talent ",
+      "Class": " Class Ability ",
+      "Special": " Special Ability ",
+      "Unique": " Unique Ability ",
+      "Job": " Job Perk "
     }
   },
   "optionalfeature": [
