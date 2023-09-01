@@ -10,17 +10,17 @@
       }
     ],
     "optionalFeatureTypes": {
-      "P": "-Path Talent",
-      "C": "-Class Ability",
-      "S": "-Special Ability",
-      "U": "-Unique Ability",
-      "J": "-Job Perk"
+      "Path": "-Path Talent",
+      "Class": "-Class Ability",
+      "Special": "-Special Ability",
+      "Unique": "-Unique Ability",
+      "Job": "-Job Perk"
     }
   },
   "optionalfeature": [
     {
-      "name": "Fragile Friendship",
-      "source": "D",
+      "name": "Fragile ",
+      "source": "Ability",
       "page": 1,
       "prerequisite": [
         {
@@ -34,11 +34,11 @@
       "entries": [
         "With a Bond Strength of 1, your companion is estranged from you. They will only take actions to defend themselves in combat, and will not use their abilities when you command. During each long rest, there is a 5% chance your companion will leave your party. This chance increases every night by an additional 5%. Your companion loses this feature when your Bond Strength is 2 or higher."
       ],
-      "featureType": ["Special Ability"]
+      "featureType": ["Special"]
     },
     {
-      "name": "On the Lookout",
-      "source": "D",
+      "name": "On the ",
+      "source": "Ability",
       "page": 1,
       "prerequisite": [
         {
@@ -52,11 +52,11 @@
       "entries": [
         "With a Bond Strength of 4 or higher, your companion is comfortable sharing information about what it notices. While within 5 feet of your companion, you can replace your Wisdom modifier with theirs when making Perception checks."
       ],
-      "featureType": ["U"]
+      "featureType": ["Class"]
     },
     {
-      "name": "Sharing is Caring",
-      "source": "D",
+      "name": "Sharing is ",
+      "source": "Talent",
       "page": 1,
       "prerequisite": [
         {
@@ -70,11 +70,29 @@
       "entries": [
         "With a Bond Strength of 6 or higher, your companion is comfortable sharing some food it finds with you. Every 1d6 days, your companion can find food and fresh water for themselves and one other creature, provided that the land offers berries, small game, water, and so forth."
       ],
-      "featureType": ["P"]
+      "featureType": ["Path"]
+    },
+    {
+      "name": "Sharing is Caring",
+      "source": "Ability",
+      "page": 1,
+      "prerequisite": [
+        {
+          "level": 1,
+          "otherSummary": {
+            "entry": "Pistoleer Form",
+            "entrySummary": "Pistoleer Form"
+          }
+        }
+      ],
+      "entries": [
+        "With a Bond Strength of 6 or higher, your companion is comfortable sharing some food it finds with you. Every 1d6 days, your companion can find food and fresh water for themselves and one other creature, provided that the land offers berries, small game, water, and so forth."
+      ],
+      "featureType": ["Unique"]
     },
     {
       "name": "Interesting Alliance",
-      "source": "D",
+      "source": "Perk",
       "page": 1,
       "prerequisite": [
         {
@@ -91,7 +109,7 @@
       "entries": [
         "With a Bond Strength of 8 or higher, your companion is willing to back you up in social situations. While within 10 feet of your companion, you gain a +1 bonus on Charisma (Persuasion) checks made against creatures with the same alignment as the companion."
       ],
-      "featureType": ["J"]
+      "featureType": ["Job"]
     }
   ]
 }
