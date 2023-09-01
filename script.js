@@ -25,3 +25,9 @@ fetch('data.json')
   .catch(error => {
     console.error('Error loading JSON:', error);
   });
+
+const viewJsonButton = document.getElementById('viewJsonButton'); //for 5e homebrew access
+
+viewJsonButton.addEventListener('click', () => {
+  window.open('data.json', '_blank');
+});
