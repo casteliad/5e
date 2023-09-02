@@ -39,7 +39,7 @@
     {
       "name": "On the ",
       "source": "Ability",
-      "page": 1,
+      "page": 2,
       "prerequisite": [
         {
           "level": 1,
@@ -60,7 +60,7 @@
       "page": 1,
       "prerequisite": [
         {
-          "level": 1,
+          "level": 3,
           "otherSummary": {
             "entry": "Pistoleer Form",
             "entrySummary": "Pistoleer Form"
@@ -78,7 +78,7 @@
       "page": 1,
       "prerequisite": [
         {
-          "level": 1,
+          "level": 5,
           "otherSummary": {
             "entry": "Pistoleer Form",
             "entrySummary": "Pistoleer Form"
@@ -96,7 +96,7 @@
       "page": 1,
       "prerequisite": [
         {
-          "level": 1,
+          "level": 10,
           "otherSummary": {
             "entry": "Pistoleer Form",
             "entrySummary": "Pistoleer Form"

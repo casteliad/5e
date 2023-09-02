@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Complex Skill Tree</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .node {
+      fill: #b3ffb3;
+      stroke: #66cc66;
+      stroke-width: 2px;
+    }
+
+    .link {
+      stroke: #ccc;
+      stroke-width: 1px;
+    }
+  </style>
+</head>
+<body>
+  <svg id="skillTree" width="800" height="600"></svg>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script>
+    const skillTreeData = {
+      nodes: [
+        { id: 'node1', name: 'Node 1' },
+        { id: 'node2', name: 'Node 2' },
+        { id: 'node3', name: 'Node 3' },
+        { id: 'node4', name: 'Node 4' },
+        { id: 'node5', name: 'Node 5' },
+        { id: 'node6', name: 'Node 6' },
+        { id: 'node7', name: 'Node 7' },
+        { id: 'node8', name: 'Node 8' },
+        { id: 'node9', name: 'Node 9' },
+        { id: 'node10', name: 'Node 10' },
+        { id: 'node11', name: 'Node 11' },
+        { id: 'node12', name: 'Node 12' },
+        { id: 'node13', name: 'Node 13' },
+        { id: 'node14', name: 'Node 14' },
+        { id: 'node15', name: 'Node 15' },
+        { id: 'node16', name: 'Node 16' },
+        { id: 'node17', name: 'Node 17' },
+        { id: 'node18', name: 'Node 18' },
+        { id: 'node19', name: 'Node 19' },
+        { id: 'node20', name: 'Node 20' },
+      ],
+      links: [
+        { source: 'node1', target: 'node2' },
+        { source: 'node1', target: 'node3' },
+        { source: 'node2', target: 'node4' },
+        { source: 'node2', target: 'node5' },
+        { source: 'node3', target: 'node6' },
+        { source: 'node3', target: 'node7' },
+        { source: 'node4', target: 'node8' },
+        { source: 'node4', target: 'node9' },
+        { source: 'node5', target: 'node10' },
+        { source: 'node5', target: 'node11' },
+        { source: 'node6', target: 'node12' },
+        { source: 'node6', target: 'node13' },
+        { source: 'node7', target: 'node14' },
+        { source: 'node7', target: 'node15' },
+        { source: 'node8', target: 'node16' },
+        { source: 'node8', target: 'node17' },
+        { source: 'node9', target: 'node18' },
+        { source: 'node9', target: 'node19' },
+        { source: 'node10', target: 'node20' },
+      ]
+    };
+
+    const svg = d3.select('#skillTree');
+    const width = +svg.attr('width');
+    const height = +svg.attr('height');
+
+    const simulation = d3.forceSimulation(skillTreeData.nodes)
+      .force('link', d3.forceLink(skillTreeData.links).id(d => d.id).distance(100))
+      .force('charge', d3.forceManyBody().strength(-200))
+      .force('center', d3.forceCenter(width / 2, height / 2));
+
+    const link = svg.append('g')
+      .attr('class', 'links')
+      .selectAll('line')
+      .data(skillTreeData.links)
+      .enter()
+      .append('line')
+      .attr('class', 'link');
+
+    const node = svg.append('g')
+      .attr('class', 'nodes')
+      .selectAll('circle')
+      .data(skillTreeData.nodes)
+      .enter()
+      .append('circle')
+      .attr('class', 'node')
+      .attr('r', 20);
+
+    simulation.on('tick', () => {
+      link
+        .attr('x1', d => d.source.x)
+        .attr('y1', d => d.source.y)
+        .attr('x2', d => d.target.x)
+        .attr('y2', d => d.target.y);
+
+      node
+        .attr('cx', d => d.x)
+        .attr('cy', d => d.y);
+    });
+  </script>
+</body>
+</html>
