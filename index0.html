@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Site</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #content {
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#page1">Page 1</a></li>
+      <li><a href="#page2">Page 2</a></li>
+    </ul>
+  </nav>
+  <div id="content"></div>
+
+  <script>
+    function loadPage(page) {
+      fetch(`${page}.html`)
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('content').innerHTML = html;
+        })
+        .catch(error => {
+          console.error(`Error loading ${page}:`, error);
+        });
+    }
+
+    function handleNavigation(event) {
+      event.preventDefault();
+      const page = event.target.getAttribute('href').substring(1);
+      loadPage(page);
+    }
+
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', handleNavigation);
+    });
+
+    // Load initial page
+    loadPage('page1');
+  </script>
+</body>
+</html>
