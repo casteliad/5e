@@ -5,8 +5,6 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
     }
 
     nav {
@@ -22,16 +20,11 @@
     }
 
     nav ul li {
-      display: inline-block;
+      display: inline;
       margin-right: 10px;
     }
 
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    main {
+    #content {
       padding: 20px;
     }
   </style>
@@ -39,36 +32,34 @@
 <body>
   <nav>
     <ul>
-      <li><a href="#page1">Page 1</a></li>
-      <li><a href="#page2">Page 2</a></li>
+      <li><a href="tree.html">Tree</a></li>
+      <li><a href="skills.html">Skills</a></li>
     </ul>
   </nav>
   <div id="content"></div>
 
   <script>
-    function loadPage(page) {
-      fetch(`${page}.html`)
+    const contentContainer = document.getElementById('content');
+
+    function loadPage(url) {
+      fetch(url)
         .then(response => response.text())
-        .then(html => {
-          document.getElementById('content').innerHTML = html;
+        .then(data => {
+          contentContainer.innerHTML = data;
         })
         .catch(error => {
-          console.error(`Error loading ${page}:`, error);
+          console.error('Error loading page:', error);
         });
     }
 
-    function handleNavigation(event) {
-      event.preventDefault();
-      const page = event.target.getAttribute('href').substring(1);
-      loadPage(page);
-    }
-
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', handleNavigation);
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        const url = link.getAttribute('href');
+        loadPage(url);
+      });
     });
-
-    // Load initial page
-    loadPage('page1');
   </script>
 </body>
 </html>
