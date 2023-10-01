@@ -20,21 +20,19 @@
   "optionalfeature": [
     {
       "name": "Fragile ",
-      "source": "Ability",
-      "page": 1,
+      "source": "Chi",
       "prerequisite": [
         {
           "level": 1,
           "otherSummary": {
             "entry": "Pistoleer Form",
-            "entrySummary": "Pistoleer Form"
           }
         }
       ],
       "entries": [
         "With a Bond Strength of 1, your companion is estranged from you. They will only take actions to defend themselves in combat, and will not use their abilities when you command. During each long rest, there is a 5% chance your companion will leave your party. This chance increases every night by an additional 5%. Your companion loses this feature when your Bond Strength is 2 or higher."
       ],
-      "featureType": ["Special"]
+      "featureType": ["Martial"]
     },
     {
       "name": "On the ",
